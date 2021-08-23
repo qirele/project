@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rocket League Cars</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h2>Good cars below:</h2>
+    <img src="images/breakout_Rl.jpg" alt="a rocket league car , breakout">
+    <p>This is a car named "Breakout" in a videogame called "Rocket League"</p>
+    <p>Here are the reasons why I like that specific car</p>
+    <p>That car is:</p>
+    <ul>
+        <li>flat</li>
+        <li>and</li>
+        <li>even</li>
+    </ul>
+    <p>To be completely honest im kind of r3t4rd3tt but its ok.</p>
+    <p>Make sure to check out this crazy image--> <a href="https://cdn.frankerfacez.com/emoticon/419215/4">rocketino
+			leagueito</a></p>
+    <button>Change user</button>
+    <script>
+        let myImage = document.querySelector('img');
+        myImage.onclick = function() {
+            let mySrc = myImage.getAttribute('src');
+            if (mySrc === 'images/breakout_Rl.jpg') {
+                myImage.setAttribute('src', 'images/MERC.jpg');
+            } else {
+                myImage.setAttribute('src', 'images/breakout_Rl.jpg');
+            }
+        }
+        let myButton = document.querySelector('button');
+        let myHeading = document.querySelector('h2');
+
+
+        function setUserName() {
+            let myName = prompt('Please enter your name.');
+            localStorage.setItem('name', myName);
+            myHeading.textContent = 'Rocket League is great, ' + myName;
+        }
+        if (!localStorage.getItem('name')) {
+            setUserName();
+        } else {
+            let storedName = localStorage.getItem('name');
+            myHeading.textContent = 'Rocket League is great, ' + storedName;
+        }
+        myButton.onclick = function() {
+            setUserName();
+        }
+    </script>
+</body>
+
+</html>
